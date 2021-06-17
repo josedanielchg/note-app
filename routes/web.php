@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\LabelController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [NoteController::class, 'index'])->name('home');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+Route::post('/login', [LoginController::class, 'checkLogin'])->name('login.check');
+Route::get('/register', [LoginController::class, 'register'])->name('login.register');
+Route::post('/register', [LoginController::class, 'checkRegister'])->name('login.check_register');
+
+Route::get('notes/{note}/add_label', [LabelController::class, 'addLabel'])->name('notes.add_label');
+Route::resource('notes', NoteController::class);
+
+Route::resource('label', LabelController::class)->only(['index', 'store', 'update', 'destroy']);
