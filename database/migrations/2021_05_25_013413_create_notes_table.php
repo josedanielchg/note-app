@@ -16,8 +16,9 @@ class CreateNotesTable extends Migration
           Schema::create('notes', function (Blueprint $table) {
                $table->id();
                $table->string("title");
+               $table->string('slug');
                $table->text("body");
-               $table->boolean("delete");
+               $table->boolean("delete")->default("0");
                $table->unsignedBigInteger("background_id")->nullable();
 
                $table->foreign("background_id")

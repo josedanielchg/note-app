@@ -2,17 +2,30 @@
 
 namespace Database\Seeders;
 
+use App\Models\Background;
+use App\Models\Label;
 use Illuminate\Database\Seeder;
+
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        // \App\Models\User::factory(10)->create();
-    }
+     /**
+      * Seed the application's database.
+      *
+      * @return void
+      */
+     public function run()
+     {
+          Storage::deleteDirectory('notes');
+          Storage::makeDirectory('notes');
+
+          $this->call(UserSeeder::class);
+
+          $this->call(BackgroundSeeder::class);
+          Label::factory(40)->create();
+
+          $this->call(RoleSeeder::class);
+          $this->call(NoteSeeder::class);
+     }
 }

@@ -1,0 +1,109 @@
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba($color: #000000, $alpha: 0.4);
+    z-index: 20;
+}
+
+.menu-container {
+    transition: 0.5s ease all;
+    overflow: hidden;
+    position: fixed;
+    width: 80%;
+    z-index: 20;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    background: $bg-color;
+    padding-top: 2rem;
+    padding-right: 3rem;
+
+    @include breakpoint(sm) {
+        width: 65%;
+    }
+
+    @include breakpoint(md) {
+        width: 30%;
+        padding-top: 3rem;
+        padding-right: 3rem;
+    }
+
+    li {
+        padding: 0.75rem;
+        padding-left: 1rem;
+        border-radius: 0 50px 50px 0;
+        font-size: 0.875rem;
+
+        @include breakpoint(md) {
+            font-size: 1rem;
+            padding-left: 3rem;
+        }
+
+        .icons {
+            margin-right: 1rem;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            color: $text-color;
+        }
+
+        &:hover {
+            background-color: rgba($color: #000000, $alpha: 0.05);
+        }
+
+        &.active {
+            background-color: $secondary-color;
+        }
+    }
+
+    .general {
+        margin-bottom: 3rem;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 2px;
+            background: rgba($color: #000000, $alpha: 0.2);
+            left: 50%;
+            bottom: -1.5rem;
+            z-index: 90;
+            transform: translate(-50%, 0);
+        }
+    }
+
+    .labels h3 {
+        color: $text-color;
+        margin-bottom: 1rem;
+        padding-left: 3rem;
+        font-size: 1rem;
+
+        @include breakpoint(md) {
+            font-size: 1.17rem;
+        }
+    }
+
+    .bttn-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+    }
+}
+
+.menu.active {
+    .overlay {
+        display: block;
+    }
+
+    .menu-container {
+        left: 0;
+    }
+}

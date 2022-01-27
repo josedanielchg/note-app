@@ -1,0 +1,16 @@
+.container {
+    width: 95%;
+    max-width: 1024px;
+    padding-bottom: 2rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+
+    @include breakpoint(sm) {
+        width: 90%;
+    }
+
+    @include breakpoint(md) {
+        width: 80%;
+    }
+}

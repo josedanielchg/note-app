@@ -1,0 +1,173 @@
+.header-note {
+    background: #fff;
+    width: 100%;
+    padding: 0.5rem 0;
+    box-shadow: 0px 3px 10px -7px #000000;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+
+    .container {
+        padding-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .icons {
+        font-size: 1.5rem;
+        border-radius: 50%;
+        padding: 0.25rem;
+        color: $text-color;
+
+        &:hover {
+            background: rgba($color: #000000, $alpha: 0.1);
+        }
+    }
+
+    .options {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+
+    .button-icon {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0.25rem 0.75rem;
+        gap: 0.25rem;
+        border-radius: 1rem;
+
+        &:hover {
+            background: rgba($color: #000000, $alpha: 0.1);
+        }
+    }
+
+    .dropdown-editor {
+        overflow: hidden;
+        position: absolute;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        box-shadow: 0px 3px 15px -7px #000000;
+        border-radius: 8px;
+        padding: 0.5rem 0;
+        z-index: 20;
+
+        &.active {
+            display: flex;
+        }
+    }
+
+    .dropdown-options {
+        top: 2.25rem;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        display: none;
+
+        .menu-item {
+            width: 100%;
+            text-align: left;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            background: transparent;
+            color: $text-color;
+
+            &:hover {
+                background: rgba($color: #000000, $alpha: 0.15);
+            }
+        }
+    }
+
+    .dropdown-colors {
+        display: none;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding: 0.5rem 0.5rem;
+        top: 2.25rem;
+        right: 40px;
+
+        input {
+            display: none;
+        }
+
+        .color-label {
+            border-radius: 50%;
+            width: 1.75rem;
+            height: 1.75rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.25rem;
+
+            &.active {
+                border: 1px solid rgba($color: #000000, $alpha: 0.5);
+            }
+        }
+    }
+
+    #note-form {
+        textarea,
+        .note-title {
+            display: none;
+        }
+    }
+}
+
+.title-input {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 3.5rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background: rgba($color: #000000, $alpha: 0.05);
+    box-shadow: 0px 3px 10px -7px #000000;
+    text-align: center;
+}
+
+.editor-container {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0px 3px 13px -5px #000000;
+
+    .ql-toolbar.ql-snow {
+        background: #f3f3f3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.5rem;
+        border: none;
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.75);
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .ql-container.ql-snow {
+        border: none;
+        font-size: 1rem;
+        background: rgba($color: #000000, $alpha: 0.05);
+        padding: 1rem 0;
+        border-radius: 0.5rem;
+
+        .ql-editor {
+            min-height: 65vh;
+        }
+    }
+}
+
+.alert-list {
+    text-align: left;
+
+    li {
+        list-style: inside;
+    }
+}
