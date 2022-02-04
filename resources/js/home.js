@@ -1,3 +1,4 @@
+require('./components/grid-note-app');
 require('./components/dropdown-home');
 require('./components/menu');
-require('./components/change_view');
+require('./components/labels-alert');
