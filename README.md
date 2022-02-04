@@ -15,7 +15,7 @@ Some functionalities of the application are:
 
 # Screenshot:
 
-![](preview.jpg)
+![](preview.png)
 
 # How to install in local:
 
