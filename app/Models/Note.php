@@ -22,12 +22,9 @@ class Note extends Model
      }
 
      // Many to many relationship
-     public function users()
+     public function user()
      {
-          return $this->belongsToMany(User::class)
-               ->withTimestamps()
-               ->withPivot('role_id')
-               ->using(NoteUser::class);
+          return $this->belongsTo(User::class);
      }
 
      public function labels()

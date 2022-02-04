@@ -1,25 +1,16 @@
-.notes-section {
-    display: grid;
-    gap: 1.5rem;
-    margin-bottom: 6rem;
-    justify-content: space-between;
+.title-result {
+    color: rgba($color: #000000, $alpha: 0.5);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
 
-    &.grid {
-        gap: 1rem 0.25rem;
-        grid-template-columns: 49% 49%;
+.notes-section {
+    .grid-item {
+        margin-bottom: 1.25rem;
+        width: calc(50% - 0.25rem * 2);
 
         @include breakpoint(md) {
-            gap: 1.5rem;
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    &.list {
-        gap: 0.5rem;
-        grid-template-columns: repeat(1, fr);
-
-        @include breakpoint(sm) {
-            gap: 1.5rem;
+            width: calc(33.3% - 0.25rem * 3);
         }
     }
 

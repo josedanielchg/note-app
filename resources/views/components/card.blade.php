@@ -1,11 +1,11 @@
-<div class="card-container">
+<div class="card-container grid-item">
      <div class="card"style="background-color: {{$note->background->color}};">
 
           {{-- Card title & body --}}
           <a href="@isset($trash) {{route('notes.read_only', $note)}} @else {{route('notes.show', $note)}} @endisset" class="main-content">
                <h3>{{$note->title}}</h3>
                <div class="content">
-                    {!!$note->body!!}
+                    {!!$note->abstract!!}
                </div>
           </a>
 
@@ -19,10 +19,10 @@
           {{-- Card footer icons --}}
           <div class="icons">
                <a href="{{route('notes.show', $note)}}">
-                    <i class="fas fa-arrow-right"></i>
+                    <span class="material-icons-outlined">&#xf1df;</span>
                </a>
                <div class="options">
-                    <i class="fas fa-ellipsis-v dropdown-menu-bttn"></i>
+                    <button class="material-icons-outlined dropdown-menu-bttn">&#xe5d4;</button>
                </div>
           </div>
      </div>
@@ -52,9 +52,8 @@
                     <button type="submit" class="menu-item">Delete Note</button>
                </form>
 
-               <a href="" class="menu-item">Añadir etiqueta</a>
-               <a href="" class="menu-item">Crear una copia</a>
-               <a href="" class="menu-item">Agregar contribuidor</a>
+               <a href="{{ route('notes.show_labels', $note) }}" class="menu-item">Añadir etiqueta</a>
+               <a href="{{ route('notes.make_copy', $note) }}" class="menu-item">Crear una copia</a>
           </div>
      @endisset
 </div>

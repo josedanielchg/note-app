@@ -3,7 +3,7 @@
      {{-- Header bar --}}
      <header class="header">
           <button class="sidebar-button" id="sidebar-button">
-               <i class="fas fa-bars"></i>
+               <span class="material-icons-outlined">&#xe5d2;</span>
           </button>
 
           @isset($trash)
@@ -14,22 +14,18 @@
                     <button type="submit">Empty Trash Now</button>
                </form>
           @else
-               <form action="" method="post" class="input-search">
-                    <input type="text" name="name" id="note-name" placeholder="&#xf002 Search your notes" style="font-family:Arial, FontAwesome">
+               <form action="{{ route('notes.search') }}" method="post" class="input-search">
+                    @csrf
+                    <input type="text" name="search" id="note-name" placeholder=" &#xf002 Search your notes" style="font-family:Arial, FontAwesome" value="@isset($search){{ $search }}@endisset" required>
                     <button type="submit">
-                         <i class="fas fa-arrow-right"></i>
+                         <span class="material-icons-outlined">&#xf1df;</span>
                     </button>
                </form>
           @endisset
 
           <div class="right-component">
-               <div class="icons" id="change-view-bttn">
-                    <button class="material-icons-outlined grid">&#xe9b0;</button>
-                    <button class="material-icons-outlined list active">&#xE8E9;</button>
-               </div>
-
                <div class="profile-image">
-                    <img src="{{asset('storage/'. $user->image->path)}}" alt="No se ve" srcset="" class="dropdown-user-img">
+                    <img src="@if($user->image) {{asset('storage/'. $user->image->path)}} @else {{asset("/img/image-defaut.png")}} @endif" alt="No se ve" srcset="" class="dropdown-user-img">
                </div>
           </div>
      </header>
@@ -37,9 +33,9 @@
      {{-- Dropdown user --}}
      <div class="dropdown">
           <div class="user-data">
-               <a href="" class="user-image">
-                    <img src="{{asset('storage/'. $user->image->path)}}" alt="No se ve" srcset="">
-                    <button class="material-icons-outlined icon-camera">&#xe412;</button>
+               <a href="{{ route('user.profile')}}" class="user-image">
+                    <img src="@if($user->image) {{asset('storage/'. $user->image->path)}} @else {{asset("/img/image-defaut.png")}} @endif" alt="No se ve" srcset="">
+                    <button class="material-icons-outlined icon-camera">&#xe3c9;</button>
                </a>
                
                <h2 class="username">{{$user->name}}</h2>
@@ -47,10 +43,10 @@
           </div>
 
           <div class="user-options">
-               <li><i class="fas fa-user-circle"></i> Profile</li>
-               <li><i class="fas fa-sign-out-alt"></i> Log out</li>
+               <a href="{{ route('user.profile') }}"><span class="material-icons-round">&#xe853;</span> Profile</a>
+               <a href="{{ route('login.logout') }}"><span class="material-icons-outlined">&#xe9ba;</span> Log out</a>
           </div>
 
-          <i class="fas fa-plus close-bttn"></i>
+          <span class="material-icons-outlined close-bttn">&#xe5cd;</span>
      </div>
 </div>

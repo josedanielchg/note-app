@@ -42,7 +42,11 @@
 
     .content {
         line-height: 1.25;
-        font-size: 0.875rem;
+        font-size: 0.75rem;
+
+        @include breakpoint(sm) {
+            font-size: 0.875rem;
+        }
     }
 
     ul,
@@ -66,9 +70,14 @@
         padding: 0.25rem 0.5rem;
         border-radius: 0.5rem;
         transition: 0.25s ease all;
+        font-size: 0.875rem;
 
         &:hover {
             background: rgba($color: #000000, $alpha: 0.15);
+        }
+
+        @include breakpoint(sm) {
+            font-size: 1rem;
         }
     }
 
@@ -93,7 +102,8 @@
         display: flex;
         gap: 0.75rem;
 
-        i {
+        button {
+            background-color: transparent;
             display: flex;
             align-items: center;
             justify-content: center;

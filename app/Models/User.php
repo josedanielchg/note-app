@@ -50,15 +50,12 @@ class User extends Authenticatable
      // Many to many relationship
      public function notes()
      {
-          return $this->belongsToMany(Note::class)
-               ->withTimestamps()
-               ->withPivot('role_id')
-               ->using(NoteUser::class);
+          return $this->hasMany(Note::class);
      }
 
      // Polymorphic one to one relationship
      public function image()
      {
-          return $this->morphOne(Image::class, 'imageable');
+          return $this->hasOne(Image::class);
      }
 }

@@ -16,8 +16,8 @@ class Image extends Model
      ];
 
      // Polymorphic one  to many relationship (inverse)
-     public function imageable()
+     public function user()
      {
-          return $this->morphTo();
+          return $this->belongsTo(User::class);
      }
 }

@@ -1,7 +1,7 @@
 header.header {
     background-color: rgba($color: #000000, $alpha: 0.04);
     display: grid;
-    grid-template-columns: 25px 1fr 3.5rem;
+    grid-template-columns: 25px 1fr auto;
     align-items: center;
     border-radius: 32px;
     margin-bottom: 1rem;
@@ -23,16 +23,22 @@ header.header {
         margin-bottom: 2rem;
     }
 
-    i {
+    span {
         color: rgba($color: $text-color, $alpha: 0.7);
     }
 
     button.sidebar-button {
         background-color: transparent;
-        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        @include breakpoint(md) {
+        span {
             font-size: 1.5rem;
+
+            @include breakpoint(md) {
+                font-size: 2rem;
+            }
         }
     }
 
@@ -65,6 +71,10 @@ header.header {
         display: flex;
         justify-content: space-between;
 
+        input {
+            flex-grow: 1;
+        }
+
         @include breakpoint(md) {
             padding: 0.5rem 1.5rem;
         }
@@ -84,9 +94,16 @@ header.header {
         }
 
         button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button span {
+            color: $text-color;
             font-size: 1rem;
             @include breakpoint(md) {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
             }
         }
     }
@@ -132,7 +149,7 @@ header.header {
 
     .profile-image {
         aspect-ratio: 1/1;
-        width: 24px;
+        width: 28px;
         border-radius: 100%;
         overflow: hidden;
 
@@ -241,12 +258,20 @@ header.header {
     .user-options {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 1rem;
         margin-bottom: 1rem;
 
-        li {
+        a {
+            color: $text-color;
             list-style: none;
             font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        span {
+            font-size: 1.25rem;
         }
     }
 
@@ -254,7 +279,6 @@ header.header {
         cursor: pointer;
         position: absolute;
         font-size: 1.25rem;
-        transform: rotate(45deg);
         top: 0.5rem;
         right: 0.5rem;
     }

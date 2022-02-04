@@ -28,26 +28,26 @@
                     <h3 class="title">Labels</h3>
                     
                     @foreach ($user->labels as $label)
-                        <li>
-                              <a href="">
+                        <li @if( request()->routeIs("labels.show") && $currentLabel == $label) class="active" @endif>
+                              <a href="{{ route("labels.show", $label) }}">
                                    <span class="material-icons-outlined icons">label</span>
                                    {{ $label->name }}
-                              </a>
+                              </a> 
                          </li>
                     @endforeach
 
-                    <li>
-                         <a href="">
+                    <li class="edit_label-bttn" id="edit_label-bttn">
+                         <button >
                               <span class="material-icons-outlined icons">edit</span>
                               Edit labels
-                         </a>
+                         </button>
                     </li>
 
-                    <li>
-                         <a href="">
+                    <li class="edit_label-bttn" id="edit_label-bttn">
+                         <button>
                               <span class="material-icons-outlined icons">add</span>
                               Create new label
-                         </a>
+                         </button>
                     </li>
                </div>
           </ul>

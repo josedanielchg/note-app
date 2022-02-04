@@ -21,6 +21,8 @@
     background: $bg-color;
     padding-top: 2rem;
     padding-right: 3rem;
+    overflow-y: scroll;
+    padding-bottom: 2rem;
 
     @include breakpoint(sm) {
         width: 65%;
@@ -30,6 +32,12 @@
         width: 30%;
         padding-top: 3rem;
         padding-right: 3rem;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
     }
 
     li {
