@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Background;
 use App\Models\Note;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -24,13 +25,16 @@ class NoteFactory extends Factory
      public function definition()
      {
           $title = $this->faker->sentence(5);
+          $body = $this->faker->text(200);
 
           return [
                'title' => $title,
                'slug' => Str::slug($title),
-               'body' => $this->faker->text(200),
+               'abstract' => Str::of($body)->limit(250),
+               'body' => $body,
                'delete' => $this->faker->randomElement([0, 1]),
-               'background_id' => Background::all()->random()->id
+               'background_id' => Background::all()->random()->id,
+               'user_id' => User::all()->random()->id
           ];
      }
 }

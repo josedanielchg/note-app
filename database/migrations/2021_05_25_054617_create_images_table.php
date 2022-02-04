@@ -17,8 +17,13 @@ class CreateImagesTable extends Migration
                $table->id();
 
                $table->string("path");
-               $table->unsignedBigInteger("imageable_id");
-               $table->string("imageable_type", 65);
+               $table->unsignedBigInteger("user_id");
+
+               $table->foreign("user_id")
+                    ->references("id")
+                    ->on("users")
+                    ->onUpdate("cascade")
+                    ->onDelete("cascade");
 
                $table->timestamps();
           });

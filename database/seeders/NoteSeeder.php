@@ -17,35 +17,16 @@ class NoteSeeder extends Seeder
       */
      public function run()
      {
-          $notes = Note::factory(30)->create();
+          $notes = Note::factory(40)->create();
 
           foreach ($notes as $note) {
-               Image::factory(2)->create([
-                    'imageable_id' => $note->id,
-                    'imageable_type' => Note::class
+               $user = $note->user;
+               $labelsCollection = Label::all()->where('user_id', $user->id);
+
+               $note->labels()->attach([
+                    $labelsCollection[array_rand($labelsCollection->all())]->id,
+                    $labelsCollection[array_rand($labelsCollection->all())]->id
                ]);
-
-               //note_user table
-               $note->users()->sync([
-                    rand(1, 2),
-                    rand(3, 5),
-               ]);
-               $rand_role = rand(1, 2);
-               $note->users->first()->pivot->role_id = $rand_role;
-               $note->users->last()->pivot->role_id = $rand_role === 1 ? 2 : 1;
-               $note->users->first()->pivot->save();
-               $note->users->last()->pivot->save();
-
-               //label_note table
-               foreach ($note->users as $user) {
-                    $labelsCollection = Label::all()->where('user_id', $user->id);
-
-                    //random label from the same user 
-                    $note->labels()->attach([
-                         $labelsCollection[array_rand($labelsCollection->all())]->id,
-                         $labelsCollection[array_rand($labelsCollection->all())]->id
-                    ]);
-               }
           }
      }
 }

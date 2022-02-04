@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
           $this->call(BackgroundSeeder::class);
           Label::factory(40)->create();
 
-          $this->call(RoleSeeder::class);
           $this->call(NoteSeeder::class);
      }
 }
