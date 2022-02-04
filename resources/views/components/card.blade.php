@@ -52,8 +52,8 @@
                     <button type="submit" class="menu-item">Delete Note</button>
                </form>
 
-               <a href="{{ route('notes.show_labels', $note) }}" class="menu-item">Añadir etiqueta</a>
-               <a href="{{ route('notes.make_copy', $note) }}" class="menu-item">Crear una copia</a>
+               <a href="{{ route('notes.show_labels', $note) }}" class="menu-item">Add label</a>
+               <a href="{{ route('notes.make_copy', $note) }}" class="menu-item">Make a copy</a>
           </div>
      @endisset
 </div>
