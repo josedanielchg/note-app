@@ -5,11 +5,15 @@
                icon: 'error',
                title: 'Oops... Error',
                html:
-               '<ul class="alert-list">' +
-                    @foreach ($errors->all() as $error)
-                    `<li class="alert-item">{{ $error }}</li>` +
-                    @endforeach
-               '</ul>',
+               @if(count($errors->all()) > 1)
+                    '<ul class="alert-list">' +
+                         @foreach ($errors->all() as $error)
+                         `<li class="alert-item">{{ $error }}</li>` +
+                         @endforeach
+                    '</ul>',
+               @else
+                    '<strong>{{ $errors->first() }}</strong>',
+               @endif
                text: 'Something went wrong!',
           })
      @endif
@@ -17,7 +21,7 @@
      @if(session('info'))
                Swal.fire({
                icon: 'success',
-               title: '{{session('info')}}',
+               title: '{!! session('info') !!}',
           })
      @endif
 </script>

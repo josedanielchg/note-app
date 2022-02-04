@@ -1,0 +1,148 @@
+.alert-title {
+    font-size: 1.5rem !important;
+}
+
+.form-labels {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    .input-container,
+    label {
+        display: flex;
+        align-items: center;
+    }
+
+    .input-container {
+        padding-bottom: 0.75rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.7);
+
+        button {
+            background-color: transparent;
+        }
+    }
+
+    .alert-label-container {
+        padding-bottom: 0;
+        margin-bottom: 0.75rem;
+        border-bottom: none;
+
+        span {
+            margin-right: 0.25rem;
+        }
+
+        label {
+            flex-grow: 1;
+        }
+    }
+
+    input[type="text"] {
+        flex-grow: 1;
+        border: none;
+        margin-left: 0.25rem;
+    }
+
+    input[type="submit"] {
+        border: 0;
+        border-radius: 0.25rem;
+        background: #7066e0;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0.625em 1.1em;
+        margin-bottom: 0.5rem;
+        margin-top: 1.5rem;
+
+        &:focus {
+            box-shadow: 0 0 0 3px rgb(112 102 224 / 50%);
+        }
+    }
+
+    input[type="checkbox"] {
+        width: 2em;
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(1.5, 1.5); /* IE */
+        -moz-transform: scale(1.5, 1.5); /* FF */
+        -webkit-transform: scale(1.5, 1.5); /* Safari and Chrome */
+        -o-transform: scale(1.5, 1.5); /* Opera */
+        transform: scale(1.5, 1.5);
+        padding: 10px;
+    }
+
+    &.home {
+        label {
+            width: 1.75rem;
+            flex-grow: 0;
+            order: -1;
+        }
+
+        .delete-icon {
+            cursor: pointer;
+            display: none;
+        }
+
+        input[type="text"]:focus + label .label-icon,
+        input[type="text"]:hover + label .label-icon,
+        label:hover .label-icon,
+        label:focus .label-icon {
+            display: none;
+        }
+
+        input[type="text"]:focus + label .delete-icon,
+        input[type="text"]:hover + label .delete-icon,
+        label:hover .delete-icon,
+        label:focus .delete-icon {
+            display: block;
+        }
+
+        label.edit {
+            order: 0;
+        }
+    }
+}
+
+.btn {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: 0.25rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+
+    &:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgb(220 53 69 / 50%);
+    }
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+
+    &:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgb(40 167 69 / 50%);
+    }
+}
