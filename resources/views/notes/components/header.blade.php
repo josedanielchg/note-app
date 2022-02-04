@@ -32,7 +32,6 @@
           @isset($edit)
               <div class="dropdown-options dropdown-editor">
                     <a href="" class="menu-item">Añadir etiqueta</a>
-                    <a href="" class="menu-item">Agregar contribuidor</a>
                     
                     @if($method == 'put')
                          <form action="{{ route('notes.sendTrash', $note) }}" method="post">
@@ -40,7 +39,7 @@
                               @method("delete")
                               <button type="submit" class="menu-item">Delete Note</button>
                          </form>
-                         <a href="" class="menu-item">Crear una copia</a>
+                         <a href="{{ route('notes.make_copy', $note) }}" class="menu-item">Crear una copia</a>
                     @endif
                </div>
           @endisset

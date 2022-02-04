@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Notes')
+@section('title', 'Create Note - Note App')
 
 @section('styles')
      <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
