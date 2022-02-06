@@ -1,6 +1,6 @@
 # Note-app (Laravel Application):
 
-##### [See online - Heroku](http://agile-meadow-39302.herokuapp.com/)
+### [See online - Heroku](http://agile-meadow-39302.herokuapp.com/)
 
 ---
 
@@ -17,11 +17,11 @@ Some functionalities of the application are:
 -   Use of different types of Eloquent relationships.
 -   Authentication and user registration.
 
-# Screenshot:
+## Screenshot:
 
 ![](preview.png)
 
-# How to install in local:
+## How to install in local:
 
 1. Run `git clone https://github.com/josedanielchg/note-app`
 2. Go to project folder `cd note-app/`
