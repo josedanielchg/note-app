@@ -17,14 +17,14 @@ class DatabaseSeeder extends Seeder
       */
      public function run()
      {
-          Storage::deleteDirectory('notes');
-          Storage::makeDirectory('notes');
+          // Storage::deleteDirectory('notes');
+          // Storage::makeDirectory('notes');
 
-          $this->call(UserSeeder::class);
+          // $this->call(UsersSeeder::class);
 
           $this->call(BackgroundSeeder::class);
-          Label::factory(40)->create();
+          // Label::factory(40)->create();
 
-          $this->call(NoteSeeder::class);
+          // $this->call(NoteSeeder::class);
      }
 }

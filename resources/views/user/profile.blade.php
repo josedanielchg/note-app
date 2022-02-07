@@ -17,7 +17,7 @@
           <div class="input-container-image">
                <label class="profile-image" for="file">
                     <figure>
-                         <img src=" @if($user->image) {{asset('storage/'. $user->image->path)}} @else {{asset("/img/image-defaut.png")}} @endif" alt="" id="picture">
+                         <img src=" @if($user->image) {{$user->image->path}} @else {{asset("/img/image-defaut.png")}} @endif" alt="Undisplayable image" id="picture">
                     </figure>
                     <span class="material-icons-outlined icons edit">&#xe3c9;</span>
                </label>

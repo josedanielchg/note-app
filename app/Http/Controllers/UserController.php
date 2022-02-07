@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -32,15 +33,15 @@ class UserController extends Controller
           }
 
           if ($request->file('image_profile')) {
-               $url = Storage::put('notes', $request->file('image_profile'));
+               $url = Storage::disk('s3')->put('avatars', $request->file('image_profile'));
 
                if ($user->image) {
-                    Storage::delete($user->image->path);
+                    Storage::disk('s3')->delete(Str::remove('https://note-app-images.s3.amazonaws.com/', $user->image->path));
                     $user->image->delete();
                }
 
                Image::create([
-                    'path' => $url,
+                    'path' => 'https://note-app-images.s3.amazonaws.com/' . $url,
                     'user_id' => $user->id
                ]);
           }

@@ -29,7 +29,7 @@ class UpdateUserRequest extends FormRequest
           $rules =  [
                'name' => ['required'],
                'email' => ['required', 'unique:users,email,' . $user->id],
-               'image_profile' => ['image'],
+               'image_profile' => ['max:500', 'image'],
           ];
 
           if ($this['new-password'] != null) {
