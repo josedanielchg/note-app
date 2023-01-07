@@ -1,7 +1,5 @@
 # Note-app (Laravel Application):
 
-### [See online - Heroku](http://agile-meadow-39302.herokuapp.com/)
-
 ---
 
 Quickly capture what's on your mind and write it down so you don't forget it. This Laravel app can:
